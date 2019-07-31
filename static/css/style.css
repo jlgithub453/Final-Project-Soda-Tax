@@ -1,14 +1,30 @@
-.jumbotron {
+body{
+    color: black;
     text-align: center;
-    background-color: rgba(12, 238, 99, 0.411);
-    min-height: 75px;
 }
 
-h1 {
+
+.jumbotron {
+    margin:10px;
+   background-image: url(https://github.com/jlgithub453/Final-Project-Soda-Tax/blob/master/soda_image.jpg?raw=true
+);
+   background-size: 585px 200px;
+   color: gainsboro;
+   text-shadow: 1px 1px 1px #000, 3px 3px 5px black;
+   text-align: center;
+   box-shadow: 5px 8px lightslategray;
+}
+
+/* h1 {
     font-size: 50px;
     font-weight: bold;
-}
+} */
 
+
+
+.well{
+    color: white;
+}
 
 #pie {
     width: 100%;

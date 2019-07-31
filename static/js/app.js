@@ -29,46 +29,53 @@ function buildCharts(sample) {
   // @TODO: Use `d3.json` to fetch the sample data for the plots
   url2=`/samples/${sample}`
   d3.json(url2).then((sampledata)=>{
-    var otu_ids = sampledata.otu_ids;
-    var sample_values = sampledata.sample_values;
-    // var labels = sampledata.labels;
+    var year_week = sampledata.year_week;
+    var y_counterfactual = sampledata.y_counterfactual;
+    var y_predict=sampledata.y_predict;
+    var week_sales=sampledata.week_sales;
+    
 
     // @TODO: Build a Bubble Chart using the sample data
     var trace1 = {
-      x: otu_ids,
-      y: sample_values,
+      x: year_week,
+      y: y_counterfactual,
+      mode: 'line',
+      name: 'counterfactual sales if tax were implemented'
+     };
+     var trace2 = {
+      x: year_week,
+      y: y_predict,
+      mode: 'lines',
+      name: 'predicted sales from the model'
+     };
+     var trace3 = {
+      x: year_week,
+      y: week_sales,
       mode: 'markers',
-      marker: {
-        size: sample_values
-      },
-      color:otu_ids
-    };
-    
-    var bubbledata = [trace1];
-    
-    var bubblelayout = {
-      title: 'OTU ID',
-      showlegend: false
-    };
-    
-    Plotly.newPlot('bubble',bubbledata, bubblelayout);
+      name: 'actual sales from the data'
+     };
+     var data = [ trace1, trace2, trace3 ];
+     var layout = {
+      title:'Weekly Store Sales'
+     };
+     Plotly.newPlot('plot', data, layout);
 
     // @TODO: Build a Pie Chart
-    var piedata = [{
-      values: sample_values.slice(0,10),
-      labels: otu_ids.slice(0,10),
-      type: 'pie'
-    }];
+//     var piedata = [{
+//       values: sample_values.slice(0,10),
+//       labels: otu_ids.slice(0,10),
+//       type: 'pie'
+//     }];
     
-    var pielayout = {
-      height: 400,
-      width: 600
-    };
+//     var pielayout = {
+//       height: 400,
+//       width: 600
+//     };
     
-    Plotly.newPlot('pie', piedata, pielayout);
-    // HINT: You will need to use slice() to grab the top 10 sample_values,
-    // otu_ids, and labels (10 each).
-  })
+//     Plotly.newPlot('pie', piedata, pielayout);
+//     // HINT: You will need to use slice() to grab the top 10 sample_values,
+//     // otu_ids, and labels (10 each).
+})
 }
 
 function init() {

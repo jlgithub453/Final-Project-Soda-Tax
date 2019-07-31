@@ -5,8 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Flask Plotlyjs Example</title>
+  <title>Impact of Soda Tax</title>
+  
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
 </head>
 
 <body>
@@ -15,25 +17,27 @@
     <div class="row">
       <div class="col-md-12 jumbotron text-center">
         <h1>Impact of Soda Tax</h1>
-        <p>Use the interactive charts below to explore the dataset</p>
       </div>
     </div>
     <div class="row">
       <div class="col-md-2">
-        <div class="well">
+        <div class="well" style="background-color: black; color:grey">
           <h5>SELECT Sample:</h5>
           <select id="selDataset" onchange="optionChanged(this.value)"></select>
         </div>
         <div class="panel panel-primary">
-          <div class="panel-heading">
+          <div class="panel-heading" style="background-color:red">
             <h3 class="panel-title">Sample MetaData</h3>
           </div>
           <div id="sample-metadata" class="panel-body"></div>
         </div>
       </div>
-      <div class="col-md-7">
-        <div id="pie"></div>
-      </div>
+      <div class="col-md-7 text-center" style="font-size: large">
+       <p>In recent years, numerous cities in the U.S. have enacted taxes on beverages to promote health and raise revenue. 
+         For example, Berkeley has implemented the soda tax in March, 2015. Using weekly store level sales data from January of 2014 to December of 2015 
+         on stores inside of Berkeley and surrounding areas, we ran a machine learning model to identify the impact of soda tax on store weekly 
+         sales using difference in difference approach. In this website, we allow the user to choose the store from the sample: the user can then see 
+         the actual tax status of this store and see the plot of actual weekly sales, predicted sales and counterfactual sales if soda tax were implemented for this store.</p>
       <div class="col-md-5">
         <div id="gauge"></div>
       </div>
@@ -41,7 +45,7 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <div id="bubble"></div>
+      <div id="plot"></div>
     </div>
   </div>
 
