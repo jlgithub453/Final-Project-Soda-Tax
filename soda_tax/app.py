@@ -48,7 +48,7 @@ def names():
 
     # Use Pandas to perform the sql query
     # stmt = db.session.query(Samples).statement
-    df = pd.read_csv('app_data.csv')
+    df = pd.read_csv('https://raw.githubusercontent.com/jlgithub453/Final-Project-Soda-Tax/master/soda_tax/app_data.csv')
     used = set()
     store_name=list(df['store_code_uc'])
     store_unique_name=[x for x in store_name if x not in used and (used.add(x) or True)]
@@ -75,7 +75,7 @@ def sample_metadata(sample):
     sample_metadata = {}
     #for result in results:
 
-    df = pd.read_csv('app_data.csv')
+    df = pd.read_csv('https://raw.githubusercontent.com/jlgithub453/Final-Project-Soda-Tax/master/soda_tax/app_data.csv')
     print(df['store_code_uc'])
     print(type(sample))
 
@@ -93,7 +93,7 @@ def sample_metadata(sample):
 @app.route("/samples/<sample>")
 def samples(sample):
 
-    df = pd.read_csv('app_data.csv')
+    df = pd.read_csv('https://raw.githubusercontent.com/jlgithub453/Final-Project-Soda-Tax/master/soda_tax/app_data.csv')
 
     # Filter the data based on the sample number and
     # only keep rows with values above 1
