@@ -1,1 +1,1 @@
-web: gunicorn Belly_Button_Biodiversity.app:app
+web: gunicorn soda_tax.app:app
