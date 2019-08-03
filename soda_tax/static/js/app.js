@@ -58,10 +58,11 @@ function buildCharts(sample) {
      var layout = {
       title:'Weekly Store Sales',
       xaxis:{
-        title:"week"
+        title:"Year/Week"
         },
         yaxis:{
-        title: "store weekly sales"
+        title: "Store Weekly Sales"
+        // xaxis=list(tickformat=',d')
         }
         
      };
