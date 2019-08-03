@@ -56,7 +56,14 @@ function buildCharts(sample) {
      };
      var data = [ trace1, trace2, trace3 ];
      var layout = {
-      title:'Weekly Store Sales'
+      title:'Weekly Store Sales',
+      xaxis:{
+        title:"week"
+        },
+        yaxis:{
+        title: "store weekly sales"
+        }
+        
      };
      Plotly.newPlot('plot', data, layout);
 
